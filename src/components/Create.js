@@ -26,7 +26,7 @@ const Create = ({ todoList, setTodoList }) => {
   const addTask = () => {
     const newTodoList = [...todoList, newTask];
     setTodoList(newTodoList);
-    setNewTask(''); // Clear the input field
+    setNewTask(''); 
   };
 
   const deleteTask = (index) => {
