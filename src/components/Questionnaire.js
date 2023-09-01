@@ -5,19 +5,7 @@ const Questionnaire = ({ todoList,setAgreeNum,setDisagreeNum,setNeutralNum,selec
   const [submitted, setSubmitted] = useState(false);
 
 
-  useEffect(() => {
-    const storedResponses = localStorage.getItem('questionnaireResponses');
-    if (storedResponses) {
-      const parsedResponses = JSON.parse(storedResponses);
-      const responseValues = {};
-      parsedResponses.forEach(response => {
-        if (response.value) {
-          responseValues[response.value] = (responseValues[response.value] || 0) + 1;
-        }
-      });
-      setRadioValues(responseValues);
-    }
-  }, []);
+
 
 
   //radio buttons event start
@@ -27,9 +15,8 @@ const Questionnaire = ({ todoList,setAgreeNum,setDisagreeNum,setNeutralNum,selec
       [index]: value,
     }));
 
-    setSelected(value); // Update the selected value
+    setSelected(value); 
 
-    // Increment the corresponding response count dynamically
     if (value === 'agree') {
       setAgreeNum(prevCount => prevCount + 1);
     } else if (value === 'disagree') {
@@ -73,7 +60,6 @@ const Questionnaire = ({ todoList,setAgreeNum,setDisagreeNum,setNeutralNum,selec
                 />
                 Agree 
                 
-                {/* value of number of clicks/increment ({radioValues['agree'] || 0}) */}
               </label>
 
               <label>
@@ -84,9 +70,7 @@ const Questionnaire = ({ todoList,setAgreeNum,setDisagreeNum,setNeutralNum,selec
                   onChange={() => handleRadioChange(index, 'neutral')}
                 />
                 Neutral 
-                
-                {/* value of number of clicks/increment ({radioValues['neutral'] || 0}) */}
-                
+                                
 
               </label>
 
@@ -99,7 +83,6 @@ const Questionnaire = ({ todoList,setAgreeNum,setDisagreeNum,setNeutralNum,selec
                 />
                 Disagree 
                 
-                {/*value of number of clicks/increment ({radioValues['disagree'] || 0}) */}
               </label>
           </div>
 
