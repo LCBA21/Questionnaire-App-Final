@@ -90,10 +90,11 @@ const Questionnaire = ({ todoList,setAgreeNum,setDisagreeNum,setNeutralNum,selec
           ))}
         </div>
 
+       <Link to={`/`}>
         <button className='btn-submit' onClick={handleSubmit}>
           Submit
         </button>
-
+        </Link>
       </div>
     </div>
   );
